@@ -28,4 +28,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	<mvc:resources mapping="/static_path_shortcut/**"
+		location="/resources/theme_normal/" />
+
 </beans:beans>
