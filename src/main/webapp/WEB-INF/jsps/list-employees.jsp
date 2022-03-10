@@ -7,11 +7,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="<c:url value="/static_path_shortcut/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/static_path_shortcut/css/style.css" />"
+	rel="stylesheet">
 </head>
 <body>
 	<h1>List Employees</h1>
 
+
+	<a href="<c:url value="/showFromForAddEmployee" />"
+		class="btn btn-green">New a employee</a>
+	<br>
+	<br>
 	<div>
 		<table border="1">
 			<tr>
@@ -25,12 +31,12 @@
 
 			<c:forEach items="${listemployees}" var="e">
 				<tr>
-					<td>${e.fullname}</td>
-					<td>${e.email}</td>
-					<td>${e.gender}</td>
-					<td>${e.hobbies}</td>
-					<td>${e.country}</td>
-					<td>${e.address}</td>
+					<td><c:out value="${e.fullname}" /></td>
+					<td><c:out value="${e.email}" /></td>
+					<td><c:out value="${e.gender}" /></td>
+					<td><c:out value="${e.hobbies}" /></td>
+					<td><c:out value="${e.country}" /></td>
+					<td><c:out value="${e.address}" /></td>
 				</tr>
 			</c:forEach>
 		</table>
