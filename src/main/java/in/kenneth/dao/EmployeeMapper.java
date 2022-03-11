@@ -17,4 +17,11 @@ public class EmployeeMapper {
 		session.close();
 		return employeeList;
 	}
+
+	public void saveEmployee(Employee employee) {
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.insert("insertEmployee", employee);
+		session.commit();
+		session.close();
+	}
 }

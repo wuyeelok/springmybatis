@@ -64,6 +64,13 @@
 			<version>0.9.1.2</version>
 		</dependency>
 
+		<!-- For Form Validation -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>7.0.3.Final</version>
+		</dependency>
+
 
 	</dependencies>
 	<build>

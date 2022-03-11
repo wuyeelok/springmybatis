@@ -1,13 +1,29 @@
 package in.kenneth.entity;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
 public class Employee {
 
 	private Integer id;
+
+	@Size(min = 2, max = 50, message = "Your name must between {min} and {max} characters.")
 	private String fullname;
+
+	@Email(message = "Your email must be a valid email.")
+	@Size(min = 4, max = 50, message = "Your email must between {min} and {max} characters.")
 	private String email;
+
+	@Size(max = 50, message = "Gender must not be longer than {max} characters.")
 	private String gender;
+
+	@Size(max = 50, message = "Hobbies must not be longer than {max} characters.")
 	private String hobbies;
+
+	@Size(max = 50, message = "Country must not be longer than {max} characters.")
 	private String country;
+
+	@Size(max = 50, message = "Address must not be longer than {max} characters.")
 	private String address;
 
 	public Integer getId() {

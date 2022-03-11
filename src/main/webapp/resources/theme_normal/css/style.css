@@ -1,3 +1,20 @@
 h1 {
 	color: royalblue;
 }
+
+.btn,
+.btn:link,
+.btn:visited {
+	text-decoration: none;
+	padding: 0.5rem 0.7rem;
+}
+
+.btn:active,
+.btn:focus {
+	outline:none;
+}
+
+.btn-green {
+	background-color: green;
+	color: white;
+}

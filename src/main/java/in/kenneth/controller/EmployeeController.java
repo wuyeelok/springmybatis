@@ -1,11 +1,17 @@
 package in.kenneth.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.kenneth.dao.EmployeeMapper;
+import in.kenneth.entity.Employee;
 
 @Controller
 public class EmployeeController {
@@ -20,4 +26,24 @@ public class EmployeeController {
 		return mav;
 	}
 
+	@GetMapping("/showFromForAddEmployee")
+	public ModelAndView prepareNewEmployee() {
+		ModelAndView mav = new ModelAndView("add-employee");
+
+		mav.addObject("employee", new Employee());
+
+		return mav;
+	}
+
+	@PostMapping("/saveProcess")
+	public String saveProcess(@Valid @ModelAttribute("employee") Employee employee, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "add-employee";
+		}
+
+		mapper.saveEmployee(employee);
+
+		return "redirect:/";
+	}
 }
