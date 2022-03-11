@@ -27,9 +27,17 @@
 				<th>Hobbies</th>
 				<th>Country</th>
 				<th>Address</th>
+				<th>Actions</th>
 			</tr>
 
 			<c:forEach items="${listemployees}" var="e">
+
+				<c:url var="deleteLink" value="/deleteEmployee">
+
+					<c:param name="employeeId" value="${e.id}" />
+
+				</c:url>
+
 				<tr>
 					<td><c:out value="${e.fullname}" /></td>
 					<td><c:out value="${e.email}" /></td>
@@ -37,9 +45,12 @@
 					<td><c:out value="${e.hobbies}" /></td>
 					<td><c:out value="${e.country}" /></td>
 					<td><c:out value="${e.address}" /></td>
+					<td><a href="${deleteLink}" class="btn btn__delete">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
+
+	<script src="<c:url value="/static_path_shortcut/js/script.js" />"></script>
 </body>
 </html>

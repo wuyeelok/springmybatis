@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.kenneth.dao.EmployeeMapper;
@@ -43,6 +44,14 @@ public class EmployeeController {
 		}
 
 		mapper.saveEmployee(employee);
+
+		return "redirect:/";
+	}
+
+	@GetMapping("/deleteEmployee")
+	public String deleteEmployee(@RequestParam("employeeId") int employeeId) {
+
+		mapper.deleteEmployee(employeeId);
 
 		return "redirect:/";
 	}

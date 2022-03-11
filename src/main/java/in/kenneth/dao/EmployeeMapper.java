@@ -24,4 +24,11 @@ public class EmployeeMapper {
 		session.commit();
 		session.close();
 	}
+
+	public void deleteEmployee(Integer employeeId) {
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.delete("deleteEmployee", employeeId);
+		session.commit();
+		session.close();
+	}
 }

@@ -29,4 +29,10 @@
 		#{email}, #{gender}, #{hobbies}, #{country}, #{address} )
 	</insert>
 
+
+	<delete id="deleteEmployee" parameterType="int">
+		DELETE from employee
+		where id = #{employeeId}
+	</delete>
+
 </mapper>
