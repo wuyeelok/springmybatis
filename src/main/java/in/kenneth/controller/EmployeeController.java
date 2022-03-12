@@ -55,4 +55,12 @@ public class EmployeeController {
 
 		return "redirect:/";
 	}
+
+	@GetMapping("/editEmployee")
+	public ModelAndView editEmployee(@RequestParam("employeeId") int employeeId) {
+		ModelAndView mav = new ModelAndView("add-employee");
+		mav.addObject("employee", mapper.findById(employeeId));
+
+		return mav;
+	}
 }

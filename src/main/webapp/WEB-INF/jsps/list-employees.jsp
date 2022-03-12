@@ -38,6 +38,12 @@
 
 				</c:url>
 
+				<c:url var="updateLink" value="/editEmployee">
+
+					<c:param name="employeeId" value="${e.id}" />
+
+				</c:url>
+
 				<tr>
 					<td><c:out value="${e.fullname}" /></td>
 					<td><c:out value="${e.email}" /></td>
@@ -45,12 +51,16 @@
 					<td><c:out value="${e.hobbies}" /></td>
 					<td><c:out value="${e.country}" /></td>
 					<td><c:out value="${e.address}" /></td>
-					<td><a href="${deleteLink}" class="btn btn__delete">Delete</a></td>
+					<td><a href="<c:out value="${updateLink}" />"
+						class="btn btn_update">Update</a> | <a
+						href="<c:out value="${deleteLink}" />" class="btn btn__delete">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 
+	<script
+		src="<c:url value="/static_path_shortcut/js/jquery-3.6.0.min.js" />"></script>
 	<script src="<c:url value="/static_path_shortcut/js/script.js" />"></script>
 </body>
 </html>

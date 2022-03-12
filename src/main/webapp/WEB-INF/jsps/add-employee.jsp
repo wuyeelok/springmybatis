@@ -15,6 +15,9 @@
 	<h1>Add Employee</h1>
 
 	<form:form modelAttribute="employee" action="saveProcess" method="post">
+		<input type="hidden" value="<c:out value="${employee.hobbies}"/>"
+			id="hiddenTxt" />
+
 		<form:errors path="*" cssClass="form_errorblock form_errorblock--red"
 			element="div" />
 
@@ -55,5 +58,8 @@
 		<input type="submit" value="Save Employee" class="btn" />
 	</form:form>
 
+	<script
+		src="<c:url value="/static_path_shortcut/js/jquery-3.6.0.min.js" />"></script>
+	<script src="<c:url value="/static_path_shortcut/js/script.js" />"></script>
 </body>
 </html>

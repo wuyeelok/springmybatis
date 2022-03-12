@@ -16,8 +16,7 @@
 		<result property="address" column="address" />
 	</resultMap>
 
-	<select id="getAllEmployees" resultType="employee"
-		resultMap="result">
+	<select id="getAllEmployees" resultMap="result">
 		SELECT * FROM employee
 	</select>
 
@@ -34,5 +33,12 @@
 		DELETE from employee
 		where id = #{employeeId}
 	</delete>
+
+	<select id="findById" parameterType="int" resultMap="result">
+
+		SELECT *
+		FROM employee where id = #{employeeId}
+
+	</select>
 
 </mapper>
