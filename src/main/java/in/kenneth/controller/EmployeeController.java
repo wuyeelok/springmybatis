@@ -43,7 +43,13 @@ public class EmployeeController {
 			return "add-employee";
 		}
 
-		mapper.saveEmployee(employee);
+		if (employee.getId() == null) {
+			// create operation
+			mapper.saveEmployee(employee);
+		} else {
+			// update operation
+			mapper.updateEmployee(employee);
+		}
 
 		return "redirect:/";
 	}

@@ -39,4 +39,11 @@ public class EmployeeMapper {
 		session.close();
 		return employee;
 	}
+
+	public void updateEmployee(Employee employee) {
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.update("updateEmployee", employee);
+		session.commit();
+		session.close();
+	}
 }

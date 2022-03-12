@@ -15,6 +15,8 @@
 	<h1>Add Employee</h1>
 
 	<form:form modelAttribute="employee" action="saveProcess" method="post">
+
+		<form:hidden path="id" />
 		<input type="hidden" value="<c:out value="${employee.hobbies}"/>"
 			id="hiddenTxt" />
 
