@@ -5,14 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>List Employee</title>
 
-<link href="<c:url value="/static_path_shortcut/css/style.css" />"
-	rel="stylesheet">
+<link href="<c:url value="/css/style.css" />" rel="stylesheet">
 </head>
 <body>
-	<h1>List Employees</h1>
 
+	<h1>List Employees</h1>
 
 	<a href="<c:url value="/showFromForAddEmployee" />"
 		class="btn btn-green">New a employee</a>
@@ -59,8 +58,7 @@
 		</table>
 	</div>
 
-	<script
-		src="<c:url value="/static_path_shortcut/js/jquery-3.6.0.min.js" />"></script>
-	<script src="<c:url value="/static_path_shortcut/js/script.js" />"></script>
+	<script src="<c:url value="/js/jquery-3.6.0.min.js" />"></script>
+	<script src="<c:url value="/js/script.js" />"></script>
 </body>
 </html>

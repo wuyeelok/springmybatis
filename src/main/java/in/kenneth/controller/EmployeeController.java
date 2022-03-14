@@ -45,7 +45,7 @@ public class EmployeeController {
 
 		if (employee.getId() == null) {
 			// create operation
-			mapper.saveEmployee(employee);
+			mapper.insertEmployee(employee);
 		} else {
 			// update operation
 			mapper.updateEmployee(employee);
