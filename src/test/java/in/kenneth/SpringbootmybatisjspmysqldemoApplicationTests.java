@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import in.kenneth.dao.BookMapper;
+import in.kenneth.dao.PublisherDAO;
 import in.kenneth.dao.PublisherMapper;
 import in.kenneth.dao.UserDAO;
 import in.kenneth.entity.Book;
@@ -21,6 +22,9 @@ class SpringbootmybatisjspmysqldemoApplicationTests {
 
 	@Autowired
 	private PublisherMapper publisherMapper;
+
+	@Autowired
+	private PublisherDAO publisherDAO;
 
 	@Autowired
 	private BookMapper bookMapper;
@@ -37,6 +41,20 @@ class SpringbootmybatisjspmysqldemoApplicationTests {
 
 		for (Publisher p : publishers) {
 			Assertions.assertNotNull(p.getPhoneNumber());
+		}
+	}
+
+	@Test
+	public void findPublishersByJPA() {
+
+		List<Publisher> publishers = publisherDAO.findAll();
+
+		assertThat(publishers.size()).isGreaterThan(0);
+
+		for (Publisher p : publishers) {
+			Assertions.assertNotNull(p.getPhoneNumber());
+
+			System.out.println("Name: " + p.getName() + ", phone number: " + p.getPhoneNumber());
 		}
 	}
 
