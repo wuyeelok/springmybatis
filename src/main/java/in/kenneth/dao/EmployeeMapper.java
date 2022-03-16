@@ -2,48 +2,23 @@ package in.kenneth.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 import in.kenneth.entity.Employee;
-import in.kenneth.util.MyBatisUtil;
 
-@Repository
-public class EmployeeMapper {
-	public List<Employee> getAllEmployees() {
-		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		List<Employee> employeeList = session.selectList("getAllEmployees");
-		session.commit();
-		session.close();
-		return employeeList;
-	}
+@Mapper
+public interface EmployeeMapper {
 
-	public void saveEmployee(Employee employee) {
-		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		session.insert("insertEmployee", employee);
-		session.commit();
-		session.close();
-	}
+	// Method name has to be equal to XML id
 
-	public void deleteEmployee(Integer employeeId) {
-		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		session.delete("deleteEmployee", employeeId);
-		session.commit();
-		session.close();
-	}
+	public List<Employee> getAllEmployees();
 
-	public Employee findById(Integer employeeId) {
-		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		Employee employee = (Employee) session.selectOne("findById", employeeId);
-		session.commit();
-		session.close();
-		return employee;
-	}
+	public void insertEmployee(Employee employee);
 
-	public void updateEmployee(Employee employee) {
-		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		session.update("updateEmployee", employee);
-		session.commit();
-		session.close();
-	}
+	public void deleteEmployee(Integer employeeId);
+
+	public Employee findById(Integer employeeId);
+
+	public void updateEmployee(Employee employee);
+
 }
