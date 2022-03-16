@@ -11,8 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import in.kenneth.dao.BookMapper;
 import in.kenneth.dao.PublisherMapper;
+import in.kenneth.dao.UserDAO;
 import in.kenneth.entity.Book;
 import in.kenneth.entity.Publisher;
+import in.kenneth.entity.User;
 
 @SpringBootTest
 class SpringbootmybatisjspmysqldemoApplicationTests {
@@ -22,6 +24,9 @@ class SpringbootmybatisjspmysqldemoApplicationTests {
 
 	@Autowired
 	private BookMapper bookMapper;
+
+	@Autowired
+	private UserDAO userDAO;
 
 	@Test
 	public void findPublishers() {
@@ -41,5 +46,22 @@ class SpringbootmybatisjspmysqldemoApplicationTests {
 		List<Book> books = bookMapper.findByGenre("Java");
 
 		assertThat(books.size()).isGreaterThan(0);
+	}
+
+	@Test
+	public void findUserByIdUsingJPA() {
+		User u = userDAO.findById(2);
+		Assertions.assertNotNull(u);
+	}
+
+	@Test
+	public void findUserByFName() {
+		List<User> users = userDAO.findByFirstName("o");
+
+		for (User u : users) {
+			System.out.println("First Name: " + u.getFirstName());
+		}
+
+		assertThat(users.size()).isEqualTo(2);
 	}
 }
